@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name": "Lavabo de porcelana blanco",
+        "price": 250.34,
+        "condition": true,
+        "tags": ["Baño"],
+        "image": "lavabo.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Fregadero de acero inoxidable",
+        "price": 545.34,
+        "condition": true,
+        "tags": ["Cocina"],
+        "image": "fregadero.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Delantal con estampado de Aphex Twin",
+        "price": 8.99,
+        "condition": false,
+        "tags": ["Cocina", "Barbacoa"],
+        "image": "delantal.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Pinzas para barbacoa",
+        "price": 32.99,
+        "condition": true,
+        "tags": ["Barbacoa"],
+        "image": "pinzas.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Grifo cromado con caño en cascada",
+        "price": 54.3,
+        "condition": false,
+        "tags": ["Cocina", "Baño", "Jardín", "Barbacoa"],
+        "image": "grifo.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Perchero para puerta",
+        "price": 54.3,
+        "condition": false,
+        "tags": ["Cocina", "Baño"],
+        "image": "perchero.png"
+    },
+    {
+        "id": 7,
+        "name": "Albornoz de rayas multicolor",
+        "price": 121,
+        "condition": true,
+        "tags": ["Baño"],
+        "image": "albornoz.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Salero de cristal",
+        "price": 15.78,
+        "condition": true,
+        "tags": ["Cocina", "Barbacoa"],
+        "image": "salero.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Manguera de 8 metros",
+        "price": 25,
+        "condition": false,
+        "tags": ["Jardín"],
+        "image": "manguera.jpg"
+    }
+]
