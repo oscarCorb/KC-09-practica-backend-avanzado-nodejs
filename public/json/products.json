@@ -4,8 +4,8 @@
         "name": "Lavabo",
         "description": "Lavabo de porcelana blanco",
         "price": 250.34,
-        "condition": true,
-        "tags": ["Baño"],
+        "new": true,
+        "tags": ["baño"],
         "image": "lavabo.jpg"
     },
     {
@@ -13,8 +13,8 @@
         "name": "Fregadero",
         "description": "Fregadero de acero inoxidable",
         "price": 545.34,
-        "condition": true,
-        "tags": ["Cocina"],
+        "new": true,
+        "tags": ["cocina"],
         "image": "fregadero.jpg"
     },
     {
@@ -22,8 +22,8 @@
         "name": "Delantal",
         "description": "Delantal con estampado de Aphex Twin",
         "price": 20,
-        "condition": false,
-        "tags": ["Cocina", "Barbacoa"],
+        "new": false,
+        "tags": ["cocina", "barbacoa"],
         "image": "delantal.jpg"
     },
     {
@@ -31,8 +31,8 @@
         "name": "Pinzas",
         "description": "Pinzas largas para barbacoa",
         "price": 32.99,
-        "condition": true,
-        "tags": ["Barbacoa"],
+        "new": true,
+        "tags": ["barbacoa"],
         "image": "pinzas.jpg"
     },
     {
@@ -40,8 +40,8 @@
         "name": "Grifo",
         "description": "Grifo cromado con caño en cascada",
         "price": 54.3,
-        "condition": false,
-        "tags": ["Cocina", "Baño", "Jardín", "Barbacoa"],
+        "new": false,
+        "tags": ["cocina", "baño", "jardín"],
         "image": "grifo.jpg"
     },
     {
@@ -49,17 +49,17 @@
         "name": "Perchero",
         "description": "Perchero multiple para puerta",
         "price": 20,
-        "condition": false,
-        "tags": ["Cocina", "Baño"],
-        "image": "perchero.png"
+        "new": false,
+        "tags": ["cocina", "baño"],
+        "image": "perchero.jpg"
     },
     {
         "id": 7,
         "name": "Albornoz",
         "description": "Albornoz de rayas multicolor",
         "price": 35.1,
-        "condition": true,
-        "tags": ["Baño"],
+        "new": true,
+        "tags": ["baño"],
         "image": "albornoz.jpg"
     },
     {
@@ -67,8 +67,8 @@
         "name": "Salero",
         "description": "Salero de cristal",
         "price": 10,
-        "condition": true,
-        "tags": ["Cocina", "Barbacoa"],
+        "new": true,
+        "tags": ["cocina", "barbacoa"],
         "image": "salero.jpg"
     },
     {
@@ -76,8 +76,8 @@
         "name": "Manguera",
         "description": "Manguera de 8 metros",
         "price": 25,
-        "condition": false,
-        "tags": ["Jardín"],
+        "new": false,
+        "tags": ["jardín"],
         "image": "manguera.jpg"
     },
     {
@@ -85,8 +85,8 @@
         "name": "Cascanueces",
         "description": "Cascanueces de titanio",
         "price": 25,
-        "condition": true,
-        "tags": ["Cocina"],
-        "image": "cascanueces.png"
+        "new": true,
+        "tags": ["cocina"],
+        "image": "cascanueces.jpg"
     }
 ]
