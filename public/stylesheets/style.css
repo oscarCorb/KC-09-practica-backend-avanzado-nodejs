@@ -1,8 +1,40 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00b7ff;
+}
+
+td {
+    padding: 5px 5px;
+}
+
+.table-header {
+    color: #fff;
+    background-color: #222;
+    font-weight: bold;
+}
+
+.price-column {
+    text-align: right;
+}
+
+/* New products boolean */
+.new-true {
+    color: green;
+}
+
+.new-false {
+    color: red;
+}
+
+/* rows background color */
+.even-row {
+    background-color: #fff;
+}
+
+.odd-row {
+    background-color: #d3d3d3;
 }
