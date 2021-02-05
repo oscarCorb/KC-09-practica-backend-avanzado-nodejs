@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 
 const Product = require('../models/Product');
-const jsonProducts = require('../public/json/products.json');
+const jsonProducts = require('../data/products.json');
 
 // mongoose connection module
 require('../lib/connectMongoose');
