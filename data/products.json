@@ -3,7 +3,7 @@
         "id": 1,
         "name": "Lavabo",
         "description": "Lavabo de porcelana blanco",
-        "price": 250.34,
+        "price": 95.34,
         "new": true,
         "tags": ["baño"],
         "image": "lavabo.jpg"
@@ -11,20 +11,11 @@
     {
         "id": 2,
         "name": "Fregadero",
-        "description": "Fregadero de acero inoxidable",
         "price": 545.34,
-        "new": true,
-        "tags": ["cocina"],
-        "image": "fregadero.jpg"
-    },
-    {
-        "id": 3,
-        "name": "Delantal",
-        "description": "Delantal con estampado de Aphex Twin",
-        "price": 20,
         "new": false,
-        "tags": ["cocina", "barbacoa"],
-        "image": "delantal.jpg"
+        "tags": ["cocina"],
+        "description": "Fregadero de acero inoxidable",
+        "image": "fregadero.jpg"
     },
     {
         "id": 4,
@@ -36,20 +27,38 @@
         "image": "pinzas.jpg"
     },
     {
+        "id": 9,
+        "name": "Manguera",
+        "description": "Manguera de 8 metros",
+        "price": 25,
+        "new": true,
+        "tags": ["jardín"],
+        "image": "manguera.jpg"
+    },
+    {
         "id": 5,
         "name": "Grifo",
         "description": "Grifo cromado con caño en cascada",
-        "price": 54.3,
+        "price": 231.9,
         "new": false,
         "tags": ["cocina", "baño", "jardín"],
         "image": "grifo.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Delantal",
+        "description": "Delantal con estampado de Aphex Twin",
+        "price": 20,
+        "new": false,
+        "tags": ["cocina", "barbacoa"],
+        "image": "delantal.jpg"
     },
     {
         "id": 6,
         "name": "Perchero",
         "description": "Perchero multiple para puerta",
         "price": 20,
-        "new": false,
+        "new": true,
         "tags": ["cocina", "baño"],
         "image": "perchero.jpg"
     },
@@ -58,7 +67,7 @@
         "name": "Albornoz",
         "description": "Albornoz de rayas multicolor",
         "price": 35.1,
-        "new": true,
+        "new": false,
         "tags": ["baño"],
         "image": "albornoz.jpg"
     },
@@ -70,15 +79,6 @@
         "new": true,
         "tags": ["cocina", "barbacoa"],
         "image": "salero.jpg"
-    },
-    {
-        "id": 9,
-        "name": "Manguera",
-        "description": "Manguera de 8 metros",
-        "price": 25,
-        "new": false,
-        "tags": ["jardín"],
-        "image": "manguera.jpg"
     },
     {
         "id": 10,
