@@ -1,7 +1,6 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const fs = require('fs');
 
 const Product = require('../models/Product');
 const jsonProducts = require('../data/products.json');
