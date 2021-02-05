@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // API routes
-app.use('/api/productos', require('./routes/api/products'));
+app.use('/api/products', require('./routes/api/products'));
 
 // website routes
 app.use('/', require('./routes/index'));
