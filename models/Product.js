@@ -6,15 +6,20 @@ const mongoose = require('mongoose');
 const productSchema = mongoose.Schema({
     name: { type: String, index: true },
     price: { type: Number, index: true },
-    condition: Boolean,
+    new: Boolean,
     tags: [String],
+    description: { type: String },
     image: String,
 });
 
-///////////////////////////////////////////////////////////////
-// aquí en clase creamos un método estático PARA LOS FILTROS
-//////////////////////////////////////////////////////////////
-
+productSchema.statics.list = function (filter, limit, skip, fields, sort) {
+    const query = Product.find(filter);
+    query.limit(limit);
+    query.skip(skip);
+    query.select(fields);
+    query.sort(sort);
+    return query.exec();
+};
 // model creation
 const Product = mongoose.model('Product', productSchema);
 

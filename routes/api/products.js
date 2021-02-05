@@ -1,12 +1,10 @@
 'use strict';
 
 const express = require('express');
-const { route } = require('..');
+
 const router = express.Router();
 
 const Product = require('../../models/Product');
-
-// the current route for this file is '/api/products/'
 
 ///////////////////////////////////////////////////////////////////
 // PRACTICAR: HACER LUEGO TODO ESTE CÓDIGO CON PROMESAS Y CALLBACKS
@@ -15,11 +13,77 @@ const Product = require('../../models/Product');
 /////////// HABRÁ QUE REVISAR POR QUÉ NO ME FUNCIONAN LOS 'if(!producto)' que hacía el profe
 /////////// Luego habrá que comparar este archivo con el del profe (en el mío faltan cosas)
 
+// router => /api/products/
+
 // get all items
 router.get('/', async (req, res, next) => {
+    console.log('->>>> get all items');
     try {
-        const products = await Product.find();
+        const limit = parseInt(req.query.limit);
+        const skip = parseInt(req.query.skip);
+        const fields = req.query.fields;
+        const sort = req.query.sort;
+
+        const name = req.query.name;
+        const price = req.query.price;
+        const newProduct = req.query.new;
+        // const tags = req.query.tags;
+        const tags = req.query.tags;
+
+        const filter = {};
+        let tagsArray;
+
+        if (name) {
+            filter.name = name;
+            // console.log('->', name);
+        }
+
+        if (price) {
+            filter.price = price;
+
+            // const price2 = price.split('-');
+            // console.log('price2->', price2);
+
+            // EJEMPLO WEB MongoDB: db.inventory.find( { status: "A", qty: { $lt: 30 } } )
+
+            // /[0-9]+-{1}/.test(price) ? ...
+
+            // console.log('->>', price2[0], parseInt(price2[0]));
+
+            // filter.price = { price: { $gte: price2[0], $lte: price2[1] } };
+        }
+        // console.log('filter.price-:>', filter.price);
+
+        // pista: { precio: { $gte: 10, $lte: 80} }
+
+        if (newProduct) {
+            filter.new = newProduct;
+        }
+
+        if (tags) {
+            filter.tags = { $in: tags };
+        }
+
+        // name ? (filter.name = name) : null;
+        // price ? (filter.price = price) : null;
+        // newProduct ? (filter.new = newProduct) : null;
+        // tags ? (filter.tags = tags) : null;
+
+        // console.log('filter->', filter);
+        // console.log('tags->', tags);
+
+        const products = await Product.list(filter, limit, skip, fields, sort);
         res.json({ result: products });
+    } catch (error) {
+        next(error);
+    }
+});
+
+// get all tags
+router.get('/tags', async (req, res, next) => {
+    try {
+        const tags = await Product.distinct('tags');
+        res.json({ tags: tags });
     } catch (error) {
         next(error);
     }
