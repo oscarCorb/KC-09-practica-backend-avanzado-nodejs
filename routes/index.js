@@ -29,4 +29,10 @@ router.get('/products', async (req, res, next) => {
     }
 });
 
+router.get('/products/:name', async (req, res, next) => {
+    const name = req.params.name;
+    res.locals.article = await Product.findOne({ name: name });
+    res.render('product');
+});
+
 module.exports = router;
