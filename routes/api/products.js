@@ -5,13 +5,6 @@ const router = express.Router();
 const Product = require('../../models/Product');
 const filters = require('../../utils/filters');
 
-///////////////////////////////////////////////////////////////////
-// PRACTICAR: HACER LUEGO TODO ESTE CÓDIGO CON PROMESAS Y CALLBACKS
-///////////////////////////////////////////////////////////////////
-
-/////////// HABRÁ QUE REVISAR POR QUÉ NO ME FUNCIONAN LOS 'if(!producto)' que hacía el profe
-/////////// Luego habrá que comparar este archivo con el del profe (en el mío faltan cosas)
-
 // router => /api/products/
 
 // get all items
@@ -78,16 +71,8 @@ router.put('/:id', async (req, res, next) => {
             new: true,
             useFindAndModify: false,
         });
-
-        //////////////// ESTO NO ME FUNCIONA ////////////////
-        if (!updatedProduct) {
-            res.status(404).json({ error: 'not found' });
-        }
-
         res.json({ Updated: updatedProduct });
     } catch (error) {
-        // no sé si puedo poner el res.json aquí antes del NEXT
-        // res.json({ Error: 'Not found. Please check the ID' });
         next(error);
     }
 });

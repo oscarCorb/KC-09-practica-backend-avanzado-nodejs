@@ -3,11 +3,12 @@ const Product = require('../models/Product');
 const router = express.Router();
 const filters = require('../utils/filters');
 
-// voy a hacerla y luego comparo con la que hicimos en clase
+// GET home page
 router.get('/', (req, res, next) => {
     res.redirect('/products');
 });
 
+// GET product list
 router.get('/products', async (req, res, next) => {
     try {
         const limit = parseInt(req.query.limit);
@@ -29,6 +30,7 @@ router.get('/products', async (req, res, next) => {
     }
 });
 
+// GET individual products
 router.get('/products/:name', async (req, res, next) => {
     const name = req.params.name;
     res.locals.article = await Product.findOne({ name: name });

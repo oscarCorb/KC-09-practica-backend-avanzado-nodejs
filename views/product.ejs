@@ -1,16 +1,16 @@
 <%- include('header') -%>
 
-<hr>
+    <hr>
 
-<h3><%= article.name %></h3>
-<h3><%= (article.price).toFixed(2).replace(/[.]/, ',') %> €</h3>
-<img src="/images/products/<%= article.image %>" alt="imagen de <%= article.name %> " width="30%">
-<p>Detalles: <%= article.description %></p>
-<p>Estado: <%= article.new ? 'Nuevo' : 'Usado' %>  </p>
-<p><%= article.tags.length > 1 ? 'Categorías': 'Categoría' %>: <%= article.tags %></p>
+    <h3><%= article.name %></h3>
+    <h3><%= (article.price).toFixed(2).replace(/[.]/, ',') %> €</h3>
+    <img src="/images/products/<%= article.image %>" alt="imagen de <%= article.name %> " width="30%">
+    <p>Detalles: <%= article.description %></p>
+    <p>Estado: <%= article.new ? 'Nuevo' : 'Usado' %>  </p>
+    <p><%= article.tags.length > 1 ? 'Categorías': 'Categoría' %>: <%= article.tags %></p>
 
-<hr>
+    <hr>
 
-<a href="/products">Volver a la lista</a>
+    <a href="/products">Volver a la lista</a>
 
 <%- include('footer') -%>
