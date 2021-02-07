@@ -5,7 +5,7 @@ const filters = require('../utils/filters');
 
 // voy a hacerla y luego comparo con la que hicimos en clase
 router.get('/', (req, res, next) => {
-    res.render('index');
+    res.redirect('/products');
 });
 
 router.get('/products', async (req, res, next) => {
@@ -23,7 +23,7 @@ router.get('/products', async (req, res, next) => {
         const filtered = filters(name, price, newProduct, tags);
 
         res.locals.products = await Product.list(filtered, limit, skip, fields, sort);
-        res.render('list');
+        res.render('index');
     } catch (error) {
         next(error);
     }

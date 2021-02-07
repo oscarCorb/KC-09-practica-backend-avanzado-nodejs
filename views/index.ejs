@@ -1,15 +1,30 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= siteTitle %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+<%- include('header') -%>
 
-  <body>
-    <h1><%= siteTitle %></h1>
-    <p>Artículos para el hogar</p>
-    <h2>Creo que aquí debería ir el listado de productos, pero mejor dejarlo para cuando la API esté funcionando al completo</h2>
-    <h1>🦄</h1>
-  </body>
+<table>
+    <th >
+        <tr class="table-header">
+            <td>Nombre</td>
+            <td>Precio</td>
+            <td>Nuevo</td>
+            <td>Categorías</td>
+            <td>URL imagen</td>
+            <td>Descripción</td>
 
-  </html>
+        </tr>
+    </th>
+
+    <% for (let i = 0; i < products.length; i++) { %>
+        <% const product = products[i] %>
+            <tr class=<%- i % 2 === 0 ? "even-row" : "odd-row" %>>
+                <td> <%= product.name %> </td>
+                <td class="price-column"> <%= product.price.toFixed(2).replace(/[.]/, ',') %> €</td>
+                <td class= <%- product.new === true ? "new-true" : "new-false" %> > <%= product.new %> </td>
+                <td> <%= product.tags %> </td>
+                <td>images/products/<%= product.image %> </td>
+                <td> <%= product.description %> </td>
+            </tr>
+    <% } %>
+
+</table>
+
+<%- include('footer') -%>
