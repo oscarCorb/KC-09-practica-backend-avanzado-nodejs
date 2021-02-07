@@ -30,6 +30,17 @@ router.get('/products', async (req, res, next) => {
     }
 });
 
+// GET tag list
+router.get('/products/tags', async (req, res, next) => {
+    /*
+        const tags = await Product.distinct('tags');
+        res.json({ tags: tags });
+    */
+    const tags = await Product.distinct('tags');
+    console.log('tags----->', tags);
+    res.render('tags', { setTags: tags });
+});
+
 // GET individual products
 router.get('/products/:name', async (req, res, next) => {
     const name = req.params.name;
