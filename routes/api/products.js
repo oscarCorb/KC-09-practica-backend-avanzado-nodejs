@@ -1,10 +1,9 @@
 'use strict';
 
 const express = require('express');
-
 const router = express.Router();
-
 const Product = require('../../models/Product');
+const filters = require('../../utils/filters');
 
 ///////////////////////////////////////////////////////////////////
 // PRACTICAR: HACER LUEGO TODO ESTE CÓDIGO CON PROMESAS Y CALLBACKS
@@ -28,43 +27,9 @@ router.get('/', async (req, res, next) => {
         const newProduct = req.query.new;
         const tags = req.query.tags;
 
-        const filter = {};
+        const filtered = filters(name, price, newProduct, tags);
 
-        if (name) {
-            filter.name = name;
-        }
-
-        if (price) {
-            if (price.includes('-')) {
-                const prices = price.split('-');
-                const priceA = parseInt(prices[0]);
-                const priceB = parseInt(prices[1]);
-
-                if (!priceA) {
-                    filter.price = { $lte: priceB };
-                } else if (!priceB) {
-                    filter.price = { $gte: priceA };
-                } else if (priceA < priceB) {
-                    console.log('<---# A es menor que B #--->');
-                    filter.price = { $gte: priceA, $lte: priceB };
-                } else if (priceA > priceB) {
-                    console.log('<---@ A es mayor que B @--->');
-                    filter.price = { $lte: priceA, $gte: priceB };
-                }
-            } else {
-                filter.price = price;
-            }
-        }
-
-        if (newProduct) {
-            filter.new = newProduct;
-        }
-
-        if (tags) {
-            filter.tags = { $in: tags };
-        }
-
-        const products = await Product.list(filter, limit, skip, fields, sort);
+        const products = await Product.list(filtered, limit, skip, fields, sort);
         res.json({ result: products });
     } catch (error) {
         next(error);
