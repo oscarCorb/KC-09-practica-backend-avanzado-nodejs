@@ -17,7 +17,6 @@ const Product = require('../../models/Product');
 
 // get all items
 router.get('/', async (req, res, next) => {
-    console.log('->>>> get all items');
     try {
         const limit = parseInt(req.query.limit);
         const skip = parseInt(req.query.skip);
@@ -27,34 +26,35 @@ router.get('/', async (req, res, next) => {
         const name = req.query.name;
         const price = req.query.price;
         const newProduct = req.query.new;
-        // const tags = req.query.tags;
         const tags = req.query.tags;
 
         const filter = {};
-        let tagsArray;
 
         if (name) {
             filter.name = name;
-            // console.log('->', name);
         }
 
         if (price) {
-            filter.price = price;
+            if (price.includes('-')) {
+                const prices = price.split('-');
+                const priceA = parseInt(prices[0]);
+                const priceB = parseInt(prices[1]);
 
-            // const price2 = price.split('-');
-            // console.log('price2->', price2);
-
-            // EJEMPLO WEB MongoDB: db.inventory.find( { status: "A", qty: { $lt: 30 } } )
-
-            // /[0-9]+-{1}/.test(price) ? ...
-
-            // console.log('->>', price2[0], parseInt(price2[0]));
-
-            // filter.price = { price: { $gte: price2[0], $lte: price2[1] } };
+                if (!priceA) {
+                    filter.price = { $lte: priceB };
+                } else if (!priceB) {
+                    filter.price = { $gte: priceA };
+                } else if (priceA < priceB) {
+                    console.log('<---# A es menor que B #--->');
+                    filter.price = { $gte: priceA, $lte: priceB };
+                } else if (priceA > priceB) {
+                    console.log('<---@ A es mayor que B @--->');
+                    filter.price = { $lte: priceA, $gte: priceB };
+                }
+            } else {
+                filter.price = price;
+            }
         }
-        // console.log('filter.price-:>', filter.price);
-
-        // pista: { precio: { $gte: 10, $lte: 80} }
 
         if (newProduct) {
             filter.new = newProduct;
@@ -63,14 +63,6 @@ router.get('/', async (req, res, next) => {
         if (tags) {
             filter.tags = { $in: tags };
         }
-
-        // name ? (filter.name = name) : null;
-        // price ? (filter.price = price) : null;
-        // newProduct ? (filter.new = newProduct) : null;
-        // tags ? (filter.tags = tags) : null;
-
-        // console.log('filter->', filter);
-        // console.log('tags->', tags);
 
         const products = await Product.list(filter, limit, skip, fields, sort);
         res.json({ result: products });
@@ -123,12 +115,14 @@ router.put('/:id', async (req, res, next) => {
         });
 
         //////////////// ESTO NO ME FUNCIONA ////////////////
-        // if (!updatedProduct) {
-        //     res.status(404).json({ error: 'not found' });
-        // }
+        if (!updatedProduct) {
+            res.status(404).json({ error: 'not found' });
+        }
 
         res.json({ Updated: updatedProduct });
     } catch (error) {
+        // no sé si puedo poner el res.json aquí antes del NEXT
+        // res.json({ Error: 'Not found. Please check the ID' });
         next(error);
     }
 });
