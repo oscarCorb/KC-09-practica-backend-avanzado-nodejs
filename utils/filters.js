@@ -34,5 +34,6 @@ module.exports = (name, price, newProduct, tags) => {
     if (tags) {
         filter.tags = { $in: tags };
     }
+
     return filter;
 };
