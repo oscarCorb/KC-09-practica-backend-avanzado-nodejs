@@ -23,6 +23,7 @@ app.use(cookieParser());
 
 // API routes
 app.use('/api/products', require('./routes/api/products'));
+app.use('/api/authenticate', require('./routes/api/login').login);
 
 // website routes
 app.use('/', require('./routes/index'));
@@ -33,33 +34,33 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-    next(createError(404));
+  next(createError(404));
 });
 
 // error handler
 app.use(function (err, req, res, next) {
-    if (err.array) {
-        const errorInfo = err.array({ onlyFirstError: true })[0];
-        err.message = `Not valid - ${errorInfo.param} ${errorInfo.msg}`;
-        err.status = 422;
-    }
+  if (err.array) {
+    const errorInfo = err.array({ onlyFirstError: true })[0];
+    err.message = `Not valid - ${errorInfo.param} ${errorInfo.msg}`;
+    err.status = 422;
+  }
 
-    res.status(err.status || 500);
+  res.status(err.status || 500);
 
-    if (isAPIRequest(req)) {
-        res.json({ error: err.message });
-        return;
-    }
+  if (isAPIRequest(req)) {
+    res.json({ error: err.message });
+    return;
+  }
 
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-    // render the error page
-    res.render('error');
+  // render the error page
+  res.render('error');
 });
 
 function isAPIRequest(req) {
-    return req.originalUrl.indexOf('/api/') === 0;
+  return req.originalUrl.indexOf('/api/') === 0;
 }
 
 module.exports = app;
