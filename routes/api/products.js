@@ -23,9 +23,9 @@ router.get('/', async (req, res, next) => {
     const filtered = filters(name, price, newProduct, tags);
 
     const products = await Product.list(filtered, limit, skip, fields, sort);
-    const reversedProducts = products.reverse();
+    const productList = products.reverse();
 
-    res.json({ result: reversedProducts });
+    res.json({ result: productList });
   } catch (error) {
     next(error);
   }

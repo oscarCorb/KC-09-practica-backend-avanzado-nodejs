@@ -5,6 +5,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const jwtAuth = require('./lib/jwtAuth');
 
 var app = express();
 
@@ -22,8 +23,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // API routes
-app.use('/api/products', require('./routes/api/products'));
 app.use('/api/authenticate', require('./routes/api/login').login);
+app.use('/api/products', jwtAuth, require('./routes/api/products'));
 
 // website routes
 app.use('/', require('./routes/index'));
