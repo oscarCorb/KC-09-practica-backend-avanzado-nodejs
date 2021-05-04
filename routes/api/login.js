@@ -8,8 +8,8 @@ module.exports = {
   login: async (req, res, next) => {
     const { email, password } = req.body;
 
-    // comparar email y contraseña con los de la BDD
-    // si no coinciden: error
+    // compare email and password against DB
+    // if don't match: error
     const user = await User.findOne({ email: email });
     if (!user || !(await user.comparePasswords(password))) {
       const error = new Error('Invalid credentials');
@@ -18,7 +18,7 @@ module.exports = {
       return;
     }
 
-    // si coinciden: crear token y retornarlo
+    // if match: generate token
     jwt.sign(
       { _id: user._id },
       process.env.JWT_SECRET,
