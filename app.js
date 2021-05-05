@@ -7,23 +7,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 const jwtAuth = require('./lib/jwtAuth');
-const multer = require('multer');
 
 var app = express();
 require('./lib/connectMongoose');
-
-const multerStorage = multer.diskStorage({
-  destination: 'public/images/products',
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
-  },
-});
-
-const upload = multer({ storage: multerStorage });
-
-app.post('/api/products', upload.single('image'), (req, res, next) => {
-  next();
-});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

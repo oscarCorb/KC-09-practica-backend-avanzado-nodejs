@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../../models/Product');
 const filters = require('../../utils/filters');
+const multer = require('multer');
 
 // router -> "/api/products/"
 
@@ -52,8 +53,18 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
+// upload image from API
+const multerStorage = multer.diskStorage({
+  destination: 'public/images/products',
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+
+const upload = multer({ storage: multerStorage });
+
 // create a new item
-router.post('/', async (req, res, next) => {
+router.post('/', upload.single('image'), async (req, res, next) => {
   try {
     const productData = req.body;
     productData.image = req.file.originalname;
