@@ -22,7 +22,7 @@ module.exports = {
     jwt.sign(
       { _id: user._id },
       process.env.JWT_SECRET,
-      { expiresIn: '20s' },
+      { expiresIn: '25h' },
       (err, jwtToken) => {
         if (err) {
           next(err);

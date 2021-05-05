@@ -56,6 +56,7 @@ router.get('/:id', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
   try {
     const productData = req.body;
+    productData.image = req.file.originalname;
     const product = new Product(productData);
     const madeProduct = await product.save();
     res.status(201).json({ Added: madeProduct });
