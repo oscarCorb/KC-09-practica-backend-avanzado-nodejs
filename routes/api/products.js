@@ -5,6 +5,8 @@ const router = express.Router();
 const Product = require('../../models/Product');
 const filters = require('../../utils/filters');
 const multer = require('multer');
+const thumbnails = require('../thumbnails');
+const path = require('path');
 
 // router -> "/api/products/"
 
@@ -53,6 +55,9 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
+const imagesFolder = path.join(__dirname, '../../public/images/products');
+// console.log('+++', imagesFolder);
+
 // upload image from API
 const multerStorage = multer.diskStorage({
   destination: 'public/images/products',
@@ -67,7 +72,11 @@ const upload = multer({ storage: multerStorage });
 router.post('/', upload.single('image'), async (req, res, next) => {
   try {
     const productData = req.body;
-    productData.image = req.file.originalname;
+    if (req.file) {
+      productData.image = req.file.originalname || null;
+      const imageURL = path.join(imagesFolder, req.file.originalname);
+      thumbnails(imageURL);
+    }
     const product = new Product(productData);
     const madeProduct = await product.save();
     res.status(201).json({ Added: madeProduct });

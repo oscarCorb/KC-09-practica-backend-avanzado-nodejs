@@ -28,7 +28,7 @@ app.use('/api/products', jwtAuth, require('./routes/api/products'));
 
 // website routes
 app.use('/', require('./routes/index'));
-// app.use('/users', require('./routes/users'));
+// app.use('/thumbnails', require('./routes/thumbnails'));
 
 // static files middleware
 app.use(express.static(path.join(__dirname, 'public')));
