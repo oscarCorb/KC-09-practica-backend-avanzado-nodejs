@@ -26,6 +26,11 @@ app.use(cookieParser());
 app.use('/api/authenticate', require('./routes/api/login').login);
 app.use('/api/products', jwtAuth, require('./routes/api/products'));
 
+// i18n
+const i18n = require('./lib/i18nConfigure');
+app.use(i18n.init);
+i18n.setLocale('es');
+
 // website routes
 app.use('/', require('./routes/index'));
 
