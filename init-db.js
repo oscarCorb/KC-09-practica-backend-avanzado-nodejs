@@ -19,17 +19,14 @@ async function main() {
 
 async function initProducts() {
   const { deletedCount } = await Product.deleteMany();
-  console.log(`Deleted ${deletedCount} poducts.`);
-
+  console.log(`- Deleted ${deletedCount} poducts`);
   const result = await Product.insertMany(jsonProducts);
-
-  console.log(`Inserted ${result.length} products.`);
+  console.log(`- Inserted ${result.length} products`);
 }
 
 async function initUsers() {
   const { deletedCount } = await User.deleteMany();
-  console.log(`Deleted ${deletedCount} users.`);
-
+  console.log(`- Deleted ${deletedCount} users`);
   const result = await User.insertMany([
     {
       email: 'user@example.com',
@@ -40,6 +37,5 @@ async function initUsers() {
       password: await User.hashPassword('1234'),
     },
   ]);
-
-  console.log(`Inserted ${result.length} users.`);
+  console.log(`- Inserted ${result.length} user`);
 }
