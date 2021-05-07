@@ -36,7 +36,7 @@ Run Thumbnail microservice
 npm run thumbnailService
 ```
 
-### Front-end website
+## Front-end website
 
 Product list: [http://localhost:3000/products](http://localhost:3000/products)
 
