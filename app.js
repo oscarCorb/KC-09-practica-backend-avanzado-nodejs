@@ -15,7 +15,7 @@ require('./lib/connectMongoose');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.locals.siteTitle = 'nodeCasa';
+app.locals.siteTitle = 'nodeHome';
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -29,10 +29,12 @@ app.use('/api/products', jwtAuth, require('./routes/api/products'));
 // i18n
 const i18n = require('./lib/i18nConfigure');
 app.use(i18n.init);
-i18n.setLocale('es');
+i18n.setLocale('en');
+i18n.__('Welcome to nodeHome');
 
 // website routes
 app.use('/', require('./routes/index'));
+app.use('/change-locale', require('./routes/change-locale'));
 
 // static files middleware
 app.use(express.static(path.join(__dirname, 'public')));

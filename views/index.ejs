@@ -3,13 +3,13 @@
 <table>
     <th >
         <tr class="table-header">
-            <td>Nombre</td>
-            <td>Precio</td>
-            <td>Nuevo</td>
-            <td>Categorías</td>
-            <td>URL imagen</td>
-            <td>Descripción</td>
-            <td>Link</td>
+            <td><%= __('name') %></td>
+            <td><%= __('price') %></td>
+            <td><%= __('new') %></td>
+            <td><%= __('tags') %></td>
+            <td><%= __('image url') %></td>
+            <td><%= __('description') %></td>
+            <td><%= __('link') %></td>
         </tr>
     </th>
 
@@ -22,7 +22,7 @@
                 <td> <%= product.tags %> </td>
                 <td>images/products/<%= product.image %> </td>
                 <td> <%= product.description %> </td>
-                <td><a href="/products/<%= product.name %>">Ver</a></td>
+                <td><a href="/products/<%= product.name %>"><%= __('Go') %></a></td>
             </tr>
     <% } %>
 
