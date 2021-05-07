@@ -9,10 +9,6 @@ module.exports = (imageURL) => {
   };
 
   requester.send(request, (err, res) => {
-    if (err) {
-      console.log('---> ha habido un error -->', err);
-      return;
-    }
-    console.log('---> ha ido bien --> ', res);
+    console.log(res);
   });
 };

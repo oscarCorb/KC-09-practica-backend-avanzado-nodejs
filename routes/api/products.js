@@ -5,7 +5,7 @@ const router = express.Router();
 const Product = require('../../models/Product');
 const filters = require('../../utils/filters');
 const multer = require('multer');
-const thumbnails = require('../thumbnails');
+const thumbnails = require('../thumbnailClient');
 const path = require('path');
 
 // router -> "/api/products/"
@@ -56,7 +56,6 @@ router.get('/:id', async (req, res, next) => {
 });
 
 const imagesFolder = path.join(__dirname, '../../public/images/products');
-// console.log('+++', imagesFolder);
 
 // upload image from API
 const multerStorage = multer.diskStorage({
@@ -73,7 +72,7 @@ router.post('/', upload.single('image'), async (req, res, next) => {
   try {
     const productData = req.body;
     if (req.file) {
-      productData.image = req.file.originalname || null;
+      productData.image = req.file.originalname;
       const imageURL = path.join(imagesFolder, req.file.originalname);
       thumbnails(imageURL);
     }

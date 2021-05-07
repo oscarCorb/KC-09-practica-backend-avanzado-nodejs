@@ -9,14 +9,12 @@ const responder = new cote.Responder({ name: 'Thumbnail generator responder' });
 responder.on('Thumbnail creation', async (req, done) => {
   const splitImgPath = req.img.split('/');
   const fileName = splitImgPath[splitImgPath.length - 1];
-
   const imagesFolder = path.join(req.img, '../');
-
+  // thumbnail generation with jimp
   const image = await Jimp.read(req.img);
   image.resize(100, Jimp.AUTO);
   image.write(path.join(imagesFolder, `thumbnails/100x100-${fileName}`));
 
-  // const result = `thumbnails/100x100-${fileName}`;
-
-  // done(result);
+  const result = `thumbnails/100x100-${fileName}`;
+  done(result);
 });
