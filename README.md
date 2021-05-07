@@ -1,6 +1,6 @@
 # nodeCasa 🏠 Household articles API
 
-## Deploy
+### Deploy
 
 Rename .env-example to to test API
 
@@ -8,7 +8,7 @@ Rename .env-example to to test API
 mv .env-example .env
 ```
 
-## How to run the API
+### How to run the API
 
 Load sample products into local MongoDB:
 
@@ -22,7 +22,7 @@ Run the API server:
 npm run dev
 ```
 
-## How to run microservices (thumbnail generation)
+### How to run microservices (thumbnail generation)
 
 Go to microservice folder
 
@@ -36,10 +36,16 @@ Run Thumbnail microservice
 npm run thumbnailService
 ```
 
-## Front-end website
+### Front-end website
 
 Product list: [http://localhost:3000/products](http://localhost:3000/products)
 
 ## API Documentation
 
-API documentation is available in the following link: [https://documenter.getpostman.com/view/13659366/TW74jkVD#a26e78be-45a5-4e05-af88-879a49448d24](https://documenter.getpostman.com/view/13659366/TW74jkVD#a26e78be-45a5-4e05-af88-879a49448d24)
+Authentication to get JWT
+
+```
+/api/authenticate
+```
+
+The whole API documentation is available at the following link: [https://documenter.getpostman.com/view/13659366/TW74jkVD#a26e78be-45a5-4e05-af88-879a49448d24](https://documenter.getpostman.com/view/13659366/TW74jkVD#a26e78be-45a5-4e05-af88-879a49448d24)
