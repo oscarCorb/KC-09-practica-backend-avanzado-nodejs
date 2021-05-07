@@ -8,8 +8,6 @@ module.exports = (imageURL) => {
     img: imageURL,
   };
 
-  // console.log('Entrando en el REQUESTER...');
-
   requester.send(request, (err, res) => {
     if (err) {
       console.log('---> ha habido un error -->', err);
