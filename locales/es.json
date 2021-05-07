@@ -1,22 +1,22 @@
 {
-	"Welcome to nodeHome": "Welcome to nodeHome",
-	"nodeHome": "nodeHome",
-	"Household products": "Productos del hogar",
-	"Details": "Details",
-	"Condition": "Condition",
-	"New": "New",
-	"Tag": {
-		"one": "Tag",
-		"other": "Tag"
-	},
-	"Used": "Used",
-	"name": "name",
-	"price": "price",
-	"new": "new",
-	"tags": "tags",
-	"image url": "image url",
-	"description": "description",
-	"link": "link",
-	"Go": "Go",
-	"Back to list": "Back to list"
+  "Welcome to nodeHome": "Welcome to nodeHome",
+  "nodeHome": "nodeCasa",
+  "Household products": "Productos del hogar",
+  "Details": "Detalles",
+  "Condition": "Estado",
+  "New": "Nuevo",
+  "Tag": {
+    "one": "Categoría",
+    "other": "Categorías"
+  },
+  "Used": "Usado",
+  "name": "nombre",
+  "price": "precio",
+  "new": "nuevo",
+  "tags": "categorías",
+  "image url": "url de la imagen",
+  "description": "descripción",
+  "link": "enlace",
+  "Go": "Ver",
+  "Back to list": "Volver al listado"
 }
