@@ -1,5 +1,13 @@
 # nodeCasa 🏠 Household articles API
 
+## Deploy
+
+Rename .env-example to to test API
+
+```
+mv .env-example .env
+```
+
 ## How to run the API
 
 Load sample products into local MongoDB:
