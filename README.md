@@ -5,13 +5,27 @@
 Load sample products into local MongoDB:
 
 ```bash
-npm run initDB
+npm run init-db
 ```
 
 Run the API server:
 
 ```bash
 npm run dev
+```
+
+## How to run microservices (thumbnail generation)
+
+Go to microservice folder
+
+```bash
+cd microservices
+```
+
+Run Thumbnail microservice
+
+```bash
+npm run thumbnailService
 ```
 
 ## Front-end website
