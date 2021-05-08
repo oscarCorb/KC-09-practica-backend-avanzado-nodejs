@@ -42,7 +42,7 @@ npm run thumbnailService
 
 ## API Documentation
 
-Authentication to get JWT
+Get JWT to authenticate
 
 ```
 /api/authenticate
